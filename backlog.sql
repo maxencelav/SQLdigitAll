@@ -8,19 +8,20 @@ CREATE TABLE utilisateur (
     prenom VARCHAR(50) NOT NULL,
     mail VARCHAR(100) NOT NULL,
     mdp VARCHAR(100)NOT NULL,
-
+    PRIMARY KEY (id)
 )
 CHARACTER SET 'utf8'
 ENGINE = INNODB;
 
 /*villes des DOMTOM*/
 
-CREATE TABLE villes (
+CREATE TABLE ville (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     departement VARCHAR(50) NOT NULL,
     ville VARCHAR(100) NOT NULL,
     code postal VARCHAR(5) NOT NULL,
     port_import_export BOOLEAN,
+    PRIMARY KEY (id)
 )
 
 CHARACTER SET 'utf8'
@@ -36,6 +37,7 @@ CREATE TABLE  personne en charges(
     pays_origine VARCHAR(50) NOT NULL,
     ville_origine VARCHAR(100) NOT NULL,
     début_activité DATE NOT NULL,
+    PRIMARY KEY (id)
 )
 
 CHARACTER SET 'utf8'
@@ -43,13 +45,12 @@ ENGINE = INNODB;
 
 /*les matières premières et les denrées alimentaires*/
 
-CREATE TABLE matieres_premieres_et_denrees_alimentaire (
+CREATE TABLE matiere_denree (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    nom_matiere_denre VARCHAR(65) NOT NULL,
-    matieres_premiere BOOLEAN,
-    denre_alimentaire BOOLEAN,
+    nom_matiere_denree VARCHAR(65) NOT NULL,
+    est_matiere_premiere BOOLEAN,
     date_de_mise_a_disposition DATE NOT NULL,
-
+    PRIMARY KEY (id)
 )
 
 CHARACTER SET 'utf8'
@@ -62,4 +63,37 @@ CREATE TABLE cargaisons(
     pays_depart VARCHAR(50) NOT NULL,
     ville_depart VARCHAR(100) NOT NULL,
     date_heure_depart DATETIME
+    id_ville_arrive INT UNSIGNED NOT NULL, 
+    date_heure_arrive DATETIME NULL,
+    reference_bateau VARCHAR(20) NOT NULL,
+    PRIMARY KEY (id)
+    CONSTRAINT fk_cargaisons_ville FOREIGN KEY (villes_id) REFERENCES villes(id) ON DELETE CASCADE
 )
+CHARACTER SET 'utf8'
+ENGINE = INNODB;
+
+/*attribuer les matières premières et des denrées alimentaire*/
+
+CREATE TABLE attrib(
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id_matiere_denree INT UNSIGNED NOT NULL,
+    quantite INT(10) NOT NULL, 
+    id_cargaison INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id)
+    CONSTRAINT fk_attrib_matiere_denree FOREIGN KEY (matiere_denree_id) REFERENCES matiere_denree(id) ON DELETE CASCADE 
+    CONSTRAINT fk_attrib_cargaison FOREIGN KEY (cargaisons_id) REFERENCES cargaison(id) ON DELETE CASCADE
+
+)
+CHARACTER SET 'utf8'
+ENGINE = INNODB;
+
+/*Distribution des denrées et des matières par ville*/
+
+CREATE TABLE distrib (
+    id_cargaison INT UNSIGNED NOT NULL, 
+    id_matiere_denree INT UNSIGNED NOT NULL,
+    id_ville INT UNSIGNED NOT NULL,
+    quantite_distribue INT(10) NOT NULL,
+/*créer deux clés séparés pour différencer distrib et attrib*/
+)
+
