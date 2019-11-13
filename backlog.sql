@@ -94,6 +94,12 @@ CREATE TABLE distrib (
     id_matiere_denree INT UNSIGNED NOT NULL,
     id_ville INT UNSIGNED NOT NULL,
     quantite_distribue INT(10) NOT NULL,
-/*créer deux clés séparés pour différencer distrib et attrib*/
+    CONSTRAINT fk_distrib_matiere_denree FOREIGN KEY (matiere_denree_id) REFERENCES matiere_denree(id) ON DELETE CASCADE 
+    CONSTRAINT fk_distrib_cargaison FOREIGN KEY (cargaisons_id) REFERENCES cargaison(id) ON DELETE CASCADE
+    CONSTRAINT fk_distrib_ville FOREIGN KEY (ville_id) REFERENCES ville(id) ON DELETE CASCADE
+
+
 )
+CHARACTER SET 'utf8'
+ENGINE = INNODB;
 
