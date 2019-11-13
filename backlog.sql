@@ -40,7 +40,7 @@ CREATE TABLE  bateliers(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
-    telephone VARCHAR(10) NOT NULL,
+    telephone VARCHAR(14) NOT NULL,
     pays_origine VARCHAR(50) NOT NULL,
     ville_origine VARCHAR(100) NOT NULL,
     debut_activite DATE NOT NULL,
@@ -114,6 +114,16 @@ ENGINE = INNODB;
 
 
 /* ---- EXERCICE 5 ---- */
+/* Liste des villes */
+/* id, departement, ville, code postal, port */
+INSERT INTO domtom
+VALUES  (1,'La Réunion','Saint-Denis','97400',0),
+        (2,'La Réunion','Le Tampon','97430',0),
+        (3,'Guadeloupe','Pointe-à-Pitre','97110',1),
+        (4,'La Réunion','Le Port','97420',1),
+        (5,'Guyane','Rémire-Montjoly','97354',1),
+        (6,'Guyane','Kourou','97310',0),
+        (7,'Martinique','Case-Pilote','97222',0);
 
 
 /* ---- EXERCICE 6 ---- */
