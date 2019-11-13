@@ -40,7 +40,7 @@ CREATE TABLE  bateliers(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
-    telephone VARCHAR(10) NOT NULL,
+    telephone VARCHAR(14) NOT NULL,
     pays_origine VARCHAR(50) NOT NULL,
     ville_origine VARCHAR(100) NOT NULL,
     debut_activite DATE NOT NULL,
@@ -112,11 +112,30 @@ ENGINE = INNODB;
 
 /* ---- EXERCICE 4 ---- */
 
+INSERT INTO utilisateurs 
+VALUES (1, 'Torres', 'Philippe','philipe.torres@gmail.com','xJS€=J@57v9t2R!z'),
+       (2, 'Verne','Jule','juleverne@yahoo.fr','vX]ky(9{YY68Vv4<'),
+       (3, 'Dagenais','Gaston','GastonDagenais@dayrep.com','F@6q:a20=7tG}YJa'),
+       (4, 'Gauthier','Fabien','FabienGauthier@rhyta.com','T7]wVyk3sQ(%0!B5'),
+       (5, 'Jodoin','Madeleine','MadeleineJodoin@rhyta.com','Viw370XI.{/b9Pqµ');
+       
+         
 
 /* ---- EXERCICE 5 ---- */
 
 
 /* ---- EXERCICE 6 ---- */
+
+INSERT INTO bateliers 
+VALUES (1, 'Lemieux','Eustache','0677841976','France','Dax','1987-05-13'),
+       (2, 'Gladu','Stéphane','0618037000','France','Angers','2003-09-24'),
+       (3, 'Hilton','Alexander','07934115066','Royaume-Uni','Birmingham','1997-11-16'),
+       (4, 'Lucchese','Alvaro','03579717227','Italie','Milan','2004-02-11'),
+       (5, 'Lorenzo','Guglielmo','03875223159','Italie','Naple','1980-04-28'),
+       (6, 'Dixon','Daryl','802-221-0873','Etats-Unis','Dallas','1991-08-14'),
+       (7, 'Davis','Manuel','270-394-7485','Etats-Unis','Los Angeles','1979-03-07'),
+       (8, 'Brkić','Mijo','0480990376','Croatie','Zagreb','2000-06-17');
+
 
 
 /* ---- EXERCICE 7 ---- */
