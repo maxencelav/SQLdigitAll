@@ -110,3 +110,16 @@ CREATE TABLE distrib(
 CHARACTER SET 'utf8'
 ENGINE = INNODB;
 
+/* ---- EXERCICE 4 ---- */
+
+
+/* ---- EXERCICE 5 ---- */
+
+
+/* ---- EXERCICE 6 ---- */
+
+
+/* ---- EXERCICE 7 ---- */
+
+
+/* ---- EXERCICE 8 ---- */
