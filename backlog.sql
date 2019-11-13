@@ -72,7 +72,7 @@ CREATE TABLE cargaisons(
     date_heure_depart DATETIME NOT NULL,
     id_ville_arrive INT UNSIGNED NOT NULL,
     date_heure_arrive DATETIME NULL,
-    reference_bateau VARCHAR(20) NOT NULL,
+    reference_bateau VARCHAR(24) NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_cargaisons_domtom FOREIGN KEY (id_ville_arrive) REFERENCES domtom(id) ON DELETE CASCADE
 )
