@@ -112,14 +112,14 @@ ENGINE = INNODB;
 
 /* ---- EXERCICE 4 ---- */
 
-INSERT INTO utilisateurs 
+INSERT INTO utilisateurs
 VALUES (1, 'Torres', 'Philippe','philipe.torres@gmail.com','xJS€=J@57v9t2R!z'),
        (2, 'Verne','Jule','juleverne@yahoo.fr','vX]ky(9{YY68Vv4<'),
        (3, 'Dagenais','Gaston','GastonDagenais@dayrep.com','F@6q:a20=7tG}YJa'),
        (4, 'Gauthier','Fabien','FabienGauthier@rhyta.com','T7]wVyk3sQ(%0!B5'),
        (5, 'Jodoin','Madeleine','MadeleineJodoin@rhyta.com','Viw370XI.{/b9Pqµ');
-       
-         
+
+
 
 /* ---- EXERCICE 5 ---- */
 /* Liste des villes */
@@ -136,7 +136,7 @@ VALUES  (1,'La Réunion','Saint-Denis','97400',0),
 
 /* ---- EXERCICE 6 ---- */
 
-INSERT INTO bateliers 
+INSERT INTO bateliers
 VALUES (1, 'Lemieux','Eustache','0677841976','France','Dax','1987-05-13'),
        (2, 'Gladu','Stéphane','0618037000','France','Angers','2003-09-24'),
        (3, 'Hilton','Alexander','07934115066','Royaume-Uni','Birmingham','1997-11-16'),
@@ -146,9 +146,42 @@ VALUES (1, 'Lemieux','Eustache','0677841976','France','Dax','1987-05-13'),
        (7, 'Davis','Manuel','270-394-7485','Etats-Unis','Los Angeles','1979-03-07'),
        (8, 'Brkić','Mijo','0480990376','Croatie','Zagreb','2000-06-17');
 
-
-
 /* ---- EXERCICE 7 ---- */
+/* id nom est_matiere_premiere date_disposition*/
+INSERT INTO matieres_denrees
+VALUES  (1,'Charbon',1,'2018-01-11'),
+        (2,'Acier',1,'2018-01-15'),
+        (3,'Pétrole',1,'2018-03-24'),
+        (4,'Gaz',1,'2018-04-02'),
+        (5,'Uranium',1,'2018-04-13'),
+        (6,'Aluminium',1,'2018-05-17'),
+        (7,'Fer',1,'2018-05-24'),
+        (8,'Or',1,'2018-06-04'),
+        (9,'Argent',1,'2018-07-07'),
+        (10,'Platine',1,'2018-08-07'),
+        (11,'Sable',1,'2018-10-20'),
+        (12,'Gravier',1,'2018-11-06'),
+        (13,'Argile',1,'2018-11-14'),
+        (14,'Pierre',1,'2018-12-04'),
+        (15,'Ardoise',1,'2019-01-20'),
+        (16,'Calcaire',1,'2019-02-03'),
+        (17,'Sel',1,'2019-06-23'),
+        (18,'Caoutchouc',1,'2019-09-25'),
+        (19,'Céréales',0,'2018-01-15'),
+        (20,'Algues',0,'2018-01-29'),
+        (21,'Lait',0,'2018-02-09'),
+        (22,'Viande',0,'2018-02-27'),
+        (23,'Aubergine',0,'2018-05-05'),
+        (24,'Endive',0,'2018-06-12'),
+        (25,'Fenouil',0,'2018-06-20'),
+        (26,'Chou',0,'2018-06-26'),
+        (27,'Tomate',0,'2018-09-15'),
+        (28,'Pomme de Terre',0,'2019-09-29'),
+        (29,'Carotte',0,'2019-06-11'),
+        (30,'Poivre',0,'2019-03-16'),
+        (31,'Cumin',0,'2019-12-24'),
+        (32,'Mayonnaise',0,'2019-10-10'),
+        (33,'Pain',0,'2019-04-16');
 
 
 /* ---- EXERCICE 8 ---- */
