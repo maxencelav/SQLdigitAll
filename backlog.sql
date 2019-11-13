@@ -141,7 +141,7 @@ VALUES (1, 'Lemieux','Eustache','0677841976','France','Dax','1987-05-13'),
        (2, 'Gladu','Stéphane','0618037000','France','Angers','2003-09-24'),
        (3, 'Hilton','Alexander','07934115066','Royaume-Uni','Birmingham','1997-11-16'),
        (4, 'Lucchese','Alvaro','03579717227','Italie','Milan','2004-02-11'),
-       (5, 'Lorenzo','Guglielmo','03875223159','Italie','Naple','1980-04-28'),
+       (5, 'Lorenzo','Guglielmo','03875223159','Italie','Naples','1980-04-28'),
        (6, 'Dixon','Daryl','802-221-0873','Etats-Unis','Dallas','1991-08-14'),
        (7, 'Davis','Manuel','270-394-7485','Etats-Unis','Los Angeles','1979-03-07'),
        (8, 'Brkić','Mijo','0480990376','Croatie','Zagreb','2000-06-17');
@@ -185,3 +185,16 @@ VALUES  (1,'Charbon',1,'2018-01-11'),
 
 
 /* ---- EXERCICE 8 ---- */
+
+INSERT INTO cargaisons
+VALUES (1, 'France','Bordeaux','2018-05-13 15:30:00',5,),/*viande*/
+       (2, 'Italie','Palerme','2019-08-16 12:00:00',3,),/*carotte*/
+       (3, 'France','Le Havre','2019-01-12 14:00:00',3,),/*fer*/
+       (4, 'France','Nantes','2019-10-05 10:00:00',4,),/*Calcaire*/
+       (5, 'Belgique','Bruges','2019-11-22 06:30:00',5,),/*Poivre*/
+       (6, 'Etats-Unis','New York','2018-07-14 22:00:00',5,),/*pétrole*/
+       (7, 'Espagne','Barcelone','2018-03-25 17:30:00',4,),/*Céréales*/
+       (8, 'Etats-Unis','Miami','2019-01-29 11:00:00',4,),/*Tomate*/
+       (9, 'Royaume-Uni','Liverpool','2019-02-05 20:45:00',3,),/*Argile*/
+       (10, 'Royaume-Uni','Liverpool','2018-07-24 14:45:00',5,);/*Charbon*/
+
