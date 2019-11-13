@@ -1,5 +1,9 @@
 /* ---- EXERCICE 2 ---- */
+CREATE USER 'lucas'@'localhost' IDENTIFIED BY '251067';
+GRANT ALL PRIVILEGES ON * . * TO 'lucas'@'localhost';
 
+CREATE USER 'maxence'@'localhost' IDENTIFIED BY 'motDePasse';
+GRANT ALL PRIVILEGES ON * . * TO 'maxence'@'localhost';
 
 /* ---- EXERCICE 3 ---- */
 
@@ -16,7 +20,7 @@ CREATE TABLE utilisateurs (
 CHARACTER SET 'utf8'
 ENGINE = INNODB;
 
-/*villes des DOMTOM*/
+/* VILLES DOMTOM*/
 
 CREATE TABLE domtom(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -30,7 +34,7 @@ CREATE TABLE domtom(
 CHARACTER SET 'utf8'
 ENGINE = INNODB;
 
-/*les personnes en charges sur les bateaux de marchandises*/
+/* PERSONNES EN CHARGE DES BATEAUX */
 
 CREATE TABLE  bateliers(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -46,7 +50,7 @@ CREATE TABLE  bateliers(
 CHARACTER SET 'utf8'
 ENGINE = INNODB;
 
-/*les matières premières et les denrées alimentaires*/
+/* MATIERES PREMIERES ET DENREES ALIMENTAIRES */
 
 CREATE TABLE matieres_denrees(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -59,7 +63,7 @@ CREATE TABLE matieres_denrees(
 CHARACTER SET 'utf8'
 ENGINE = INNODB
 
-/*les cargaisons*/
+/* CARGAISONS */
 
 CREATE TABLE cargaisons(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -69,38 +73,39 @@ CREATE TABLE cargaisons(
     id_ville_arrive INT UNSIGNED NOT NULL,
     date_heure_arrive DATETIME NULL,
     reference_bateau VARCHAR(20) NOT NULL,
-    PRIMARY KEY (id)
-    CONSTRAINT fk_cargaisons_domtom FOREIGN KEY (domtom_id) REFERENCES domtom(id) ON DELETE CASCADE
+    PRIMARY KEY (id),
+    CONSTRAINT fk_cargaisons_domtom FOREIGN KEY (id_ville_arrive) REFERENCES domtom(id) ON DELETE CASCADE
 )
 CHARACTER SET 'utf8'
 ENGINE = INNODB;
 
-/*attribuer les matières premières et des denrées alimentaire*/
+/* ATTRIBUER MATIERES ET DENREES */
 
 CREATE TABLE attrib(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_matiere_denree INT UNSIGNED NOT NULL,
-    quantite INT(10) NOT NULL,
+    quantite INT(10) UNSIGNED NOT NULL,
     id_cargaison INT UNSIGNED NOT NULL,
-    PRIMARY KEY (id)
-    CONSTRAINT fk_attrib_matiere_denree FOREIGN KEY (matiere_denree_id) REFERENCES matieres_denrees(id) ON DELETE CASCADE
-    CONSTRAINT fk_attrib_cargaisons FOREIGN KEY (cargaisons_id) REFERENCES cargaisons(id) ON DELETE CASCADE
+    PRIMARY KEY (id),
+    CONSTRAINT fk_attrib_matiere_denree FOREIGN KEY (id_matiere_denree) REFERENCES matieres_denrees(id) ON DELETE CASCADE,
+    CONSTRAINT fk_attrib_cargaisons FOREIGN KEY (id_cargaison) REFERENCES cargaisons(id) ON DELETE CASCADE
 
 )
 CHARACTER SET 'utf8'
 ENGINE = INNODB;
 
-/*Distribution des denrées et des matières par ville*/
+/* DISTRIBUER MATIERES ET DENREES */
 
 CREATE TABLE distrib(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_cargaison INT UNSIGNED NOT NULL,
     id_matiere_denree INT UNSIGNED NOT NULL,
     id_ville INT UNSIGNED NOT NULL,
-    quantite_distribue INT(10) NOT NULL,
-    CONSTRAINT fk_distrib_matieres_denrees FOREIGN KEY (matieres_denrees_id) REFERENCES matieres_denrees(id) ON DELETE CASCADE
-    CONSTRAINT fk_distrib_cargaisons FOREIGN KEY (cargaisons_id) REFERENCES cargaisons(id) ON DELETE CASCADE
-    CONSTRAINT fk_distrib_domtom FOREIGN KEY (domtom_id) REFERENCES domtom(id) ON DELETE CASCADE
+    quantite_distribue INT(10) UNSIGNED NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_distrib_matieres_denrees FOREIGN KEY (id_matiere_denree) REFERENCES matieres_denrees(id) ON DELETE CASCADE,
+    CONSTRAINT fk_distrib_cargaisons FOREIGN KEY (id_cargaison) REFERENCES cargaisons(id) ON DELETE CASCADE,
+    CONSTRAINT fk_distrib_domtom FOREIGN KEY (id_ville) REFERENCES domtom(id) ON DELETE CASCADE
 )
 CHARACTER SET 'utf8'
 ENGINE = INNODB;
