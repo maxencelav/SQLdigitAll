@@ -187,14 +187,14 @@ VALUES  (1,'Charbon',1,'2018-01-11'),
 /* ---- EXERCICE 8 ---- */
 
 INSERT INTO cargaisons
-VALUES (1, 'France','Bordeaux','2018-05-13 15:30:00',5,),/*viande*/
-       (2, 'Italie','Palerme','2019-08-16 12:00:00',3,),/*carotte*/
-       (3, 'France','Le Havre','2019-01-12 14:00:00',3,),/*fer*/
-       (4, 'France','Nantes','2019-10-05 10:00:00',4,),/*Calcaire*/
-       (5, 'Belgique','Bruges','2019-11-22 06:30:00',5,),/*Poivre*/
-       (6, 'Etats-Unis','New York','2018-07-14 22:00:00',5,),/*pétrole*/
-       (7, 'Espagne','Barcelone','2018-03-25 17:30:00',4,),/*Céréales*/
-       (8, 'Etats-Unis','Miami','2019-01-29 11:00:00',4,),/*Tomate*/
-       (9, 'Royaume-Uni','Liverpool','2019-02-05 20:45:00',3,),/*Argile*/
-       (10, 'Royaume-Uni','Liverpool','2018-07-24 14:45:00',5,);/*Charbon*/
+VALUES (1, 'France','Bordeaux','2018-05-13 15:30:00',5,'2018-05-27 20:00:00','FR-IRIB8354D517'),/*viande*/
+       (2, 'Italie','Palerme','2019-08-16 12:00:00',3,'2019-08-31 10:00:00','IT-CSICC1634I1018'),/*carotte*/
+       (3, 'France','Le Havre','2019-01-12 14:00:00',3,'2019-01-29 14:45:00','FR-DSMEC0045G718'),/*fer*/
+       (4, 'France','Nantes','2019-10-05 10:00:00',4,'2019-10-20 13:00:00','FR-IRIN7812A311'),/*Calcaire*/
+       (5, 'Belgique','Bruges','2019-11-22 06:30:00',5,'2019-12-13 23:30:00','BE-SEPIU4678B919'),/*Poivre*/
+       (6, 'Etats-Unis','New York','2018-07-14 22:00:00',5,'2018-07-30 03:30:00','US-BAEK4332L817'),/*pétrole*/
+       (7, 'Espagne','Barcelone','2018-03-25 17:30:00',4,'2018-04-05 08:20:00','ESP-SEPIE4997H920'),/*Céréales*/
+       (8, 'Etats-Unis','Miami','2019-01-29 11:00:00',4,'2019-03-03 12:30:00','US-BAET9855B718'),/*Tomate*/
+       (9, 'Royaume-Uni','Liverpool','2019-02-05 20:45:00',3,'2019-02-20 18:35:00','GB-BAEB6654E416'),/*Argile*/
+       (10, 'Royaume-Uni','Liverpool','2018-07-24 14:45:00',5,'2018-08-09 04:15:00','GB-BAEC0065J617');/*Charbon*/
 
