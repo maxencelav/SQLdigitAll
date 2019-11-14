@@ -25,8 +25,8 @@ ENGINE = INNODB;
 CREATE TABLE domtom(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     departement VARCHAR(50) NOT NULL,
-    ville VARCHAR(100) NOT NULL,
     code_postal VARCHAR(5) NOT NULL,
+    ville VARCHAR(100) NOT NULL,
     port BOOLEAN,
     PRIMARY KEY (id)
 )
