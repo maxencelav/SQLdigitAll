@@ -571,6 +571,10 @@ VALUES (1,1,22,13,'300'),
 
 /* ---- EXERCICE 12 ---- */
 
+SELECT COUNT(*) as nombre_denrees_matieres
+FROM matieres_denrees
+WHERE date_disposition < '2019-01-02'
+ORDER BY ID
 
 /* ---- EXERCICE 13 ---- */
 
