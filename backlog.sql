@@ -574,6 +574,10 @@ FROM bateliers;
 
 /* ---- EXERCICE 12 ---- */
 
+SELECT COUNT(*) as nombre_denrees_matieres
+FROM matieres_denrees
+WHERE date_disposition < '2019-01-02'
+ORDER BY ID
 
 /* ---- EXERCICE 13 ---- */
 
