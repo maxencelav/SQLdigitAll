@@ -568,6 +568,9 @@ VALUES (1,1,22,13,'300'),
 
 /* ---- EXERCICE 11 ---- */
 
+SELECT DISTINCT pays_origine
+FROM bateliers;
+
 
 /* ---- EXERCICE 12 ---- */
 
@@ -576,4 +579,9 @@ VALUES (1,1,22,13,'300'),
 
 
 /* ---- EXERCICE 14 ---- */
+
+SELECT pays_depart, ville_depart, datediff(date_heure_arrive, date_heure_depart) as nb_jours
+FROM cargaisons;
+
+
 
