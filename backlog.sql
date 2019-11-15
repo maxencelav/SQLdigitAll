@@ -70,8 +70,8 @@ CREATE TABLE cargaisons(
     pays_depart VARCHAR(50) NOT NULL,
     ville_depart VARCHAR(100) NOT NULL,
     date_heure_depart DATETIME NOT NULL,
-    id_ville_arrive INT UNSIGNED NOT NULL,
-    date_heure_arrive DATETIME NULL,
+    id_ville_arrivee     INT UNSIGNED NOT NULL,
+    date_heure_arrivee DATETIME NULL,
     reference_bateau VARCHAR(24) NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_cargaisons_domtom FOREIGN KEY (id_ville_arrive) REFERENCES domtom(id) ON DELETE CASCADE
@@ -581,11 +581,57 @@ ORDER BY ID
 
 /* ---- EXERCICE 13 ---- */
 
+SELECT *
+FROM cargaisons
+WHERE date_heure_arrivee > '2019-12-01 00:00:00' AND date_heure_arrivee < '2019-12-31 23:59:59'
+ORDER BY date_heure_arrivee
 
 /* ---- EXERCICE 14 ---- */
 
-SELECT pays_depart, ville_depart, datediff(date_heure_arrive, date_heure_depart) as nb_jours
+SELECT pays_depart, ville_depart, datediff(date_heure_arrivee, date_heure_depart) as nb_jours
 FROM cargaisons;
 
+/* ---- EXERCICE 15 ---- */
+
+SELECT pays_depart, AVG(DATEDIFF(date_heure_arrivee, date_heure_depart)) as moyenne_jours
+FROM cargaisons
+WHERE date_heure_arrivee IS NOT NULL
+GROUP BY pays_depart;
+
+
+
+/* ---- EXERCICE 16 ---- */
+
+
+
+/* ---- EXERCICE 17 ---- */
+
+
+
+/* ---- EXERCICE 18 ---- */
+
+
+
+/* ---- EXERCICE 19 ---- */
+
+
+
+/* ---- EXERCICE 20 ---- */
+
+
+
+/* ---- EXERCICE 21 ---- */
+
+
+
+/* ---- EXERCICE 22 ---- */
+
+
+
+/* ---- EXERCICE 23 ---- */
+
+
+
+/* ---- EXERCICE 24 ---- */
 
 
