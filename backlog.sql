@@ -662,7 +662,7 @@ LEFT JOIN matieres_denrees AS md
 
 GROUP BY dt.ville
 ORDER BY dis.quantite_distribue DESC
-LIMIT 3
+LIMIT 3;
 
 
 /* ---- EXERCICE 18 ---- */
@@ -705,15 +705,27 @@ INNER JOIN cargaisons as carg
     AND dt.departement = "Martinique"
     AND carg.date_heure_arrivee < NOW();
 
-
 /* ---- EXERCICE 22 ---- */
 
 
 
 /* ---- EXERCICE 23 ---- */
 
+SELECT carg.reference_bateau, carg.pays_depart, carg.ville_depart, dt.ville as ville_arrivee, dt.departement as departement_arrivee, sum(att.quantite) as poids_cargaison , datediff(carg.date_heure_arrivee, carg.date_heure_depart) as duree_livraison
+FROM cargaisons as carg
 
+LEFT JOIN domtom as dt
+    ON dt.id = carg.id_ville_arrivee
+
+LEFT JOIN attrib as att
+    ON carg.id = att.id_cargaison
+
+GROUP BY carg.reference_bateau
+ORDER BY carg.id
 
 /* ---- EXERCICE 24 ---- */
 
+
+
+/* ---- EXERCICE 25 ---- */
 
