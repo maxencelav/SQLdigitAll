@@ -651,7 +651,19 @@ LIMIT 1;
 
 /* ---- EXERCICE 17 ---- */
 
-SELECT
+SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+FROM distrib as dis
+
+LEFT JOIN domtom AS dt
+    ON dt.id = dis.id_ville
+
+LEFT JOIN matieres_denrees AS md
+    ON md.id = dis.id_matiere_denree
+
+GROUP BY dt.ville
+ORDER BY dis.quantite_distribue DESC
+LIMIT 3
+
 
 /* ---- EXERCICE 18 ---- */
 
