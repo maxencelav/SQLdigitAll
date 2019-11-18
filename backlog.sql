@@ -672,6 +672,8 @@ INNER JOIN matieres_denrees as md
 
 /* ---- EXERCICE 21 ---- */
 
+SELECT dt.departement, dt.ville, carg.date_heure_arivee, md.nom, dis.quantite_distribue
+FROM
 
 
 /* ---- EXERCICE 22 ---- */
