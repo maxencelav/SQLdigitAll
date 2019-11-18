@@ -651,7 +651,19 @@ LIMIT 1;
 
 /* ---- EXERCICE 17 ---- */
 
-SELECT
+SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+FROM distrib as dis
+
+LEFT JOIN domtom AS dt
+    ON dt.id = dis.id_ville
+
+LEFT JOIN matieres_denrees AS md
+    ON md.id = dis.id_matiere_denree
+
+GROUP BY dt.ville
+ORDER BY dis.quantite_distribue DESC
+LIMIT 3
+
 
 /* ---- EXERCICE 18 ---- */
 
@@ -664,7 +676,19 @@ INNER JOIN matieres_denrees as md
 
 /* ---- EXERCICE 19 ---- */
 
+SELECT COUNT(*) as nb_livraisons_recues
+FROM cargaisons as carg
+INNER JOIN domtom as dt
+    WHERE carg.date_heure_arrivee < NOW()
+    AND carg.id_ville_arrivee = dt.id
+    AND dt.departement = "Martinique";
 
+SELECT COUNT(*) as nb_livraisons_en_attente
+FROM cargaisons as carg
+INNER JOIN domtom as dt
+    WHERE carg.date_heure_arrivee > NOW()
+    AND carg.id_ville_arrivee = dt.id
+    AND dt.departement = "Martinique";
 
 /* ---- EXERCICE 20 ---- */
 
