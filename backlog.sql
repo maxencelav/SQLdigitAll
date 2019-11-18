@@ -605,8 +605,7 @@ VALUES  (1,1,22,13,'300'),
         (53,7,3,176,'2100'),
         (54,7,3,155,'2100'),
         (55,7,20,164,'100'),
-        (56,7,20,155,'1000')
-        ;
+        (56,7,20,155,'1000');
 
 /* ---- EXERCICE 11 ---- */
 
@@ -656,7 +655,12 @@ SELECT
 
 /* ---- EXERCICE 18 ---- */
 
-
+SELECT carg.reference_bateau, carg.pays_depart, carg.ville_depart, carg.date_heure_depart, md.nom
+FROM cargaisons as carg, attrib as att
+INNER JOIN matieres_denrees as md
+    WHERE carg.id = att.id_cargaison
+    AND md.id = att.id_matiere_denree
+    AND carg.id = 20;
 
 /* ---- EXERCICE 19 ---- */
 
