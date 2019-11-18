@@ -696,8 +696,14 @@ INNER JOIN domtom as dt
 
 /* ---- EXERCICE 21 ---- */
 
-SELECT dt.departement, dt.ville, carg.date_heure_arivee, md.nom, dis.quantite_distribue
-FROM
+SELECT dt.departement, dt.ville, carg.date_heure_arrivee, md.nom, dis.quantite_distribue
+FROM distrib as dis, matieres_denrees as md, domtom as dt
+INNER JOIN cargaisons as carg
+    WHERE dt.id = dis.id_ville
+    AND carg.id = dis.id_cargaison
+    AND md.id = dis.id_matiere_denree
+    AND dt.departement = "Martinique"
+    AND carg.date_heure_arrivee < NOW();
 
 
 /* ---- EXERCICE 22 ---- */
