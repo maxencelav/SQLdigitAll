@@ -775,6 +775,21 @@ INNER JOIN domtom as dt
 
 /* ---- EXERCICE 20 ---- */
 
+SELECT dt.departement, date_format(carg.date_heure_arrivee,'%M') as mois, COUNT(id_ville_arrivee) as cargos_livres
+FROM cargaisons as carg
+
+LEFT JOIN domtom as dt
+    ON carg.id_ville_arrivee = dt.id
+WHERE carg.id_ville_arrivee IN
+    (SELECT id
+    FROM domtom
+    WHERE departement = "Guadeloupe" AND YEAR(carg.date_heure_arrivee) = 2018)
+
+GROUP BY mois
+
+
+
+
 
 
 /* ---- EXERCICE 21 ---- */
@@ -845,11 +860,17 @@ FROM distrib as dis
 LEFT JOIN matieres_denrees as md
     ON md.id = dis.id_matiere_denree
 
-GROUP BY md.nom 
+GROUP BY md.nom
 ORDER BY poids_total DESC
 LIMIT 5
 
-
-
 /* ---- EXERCICE 25 ---- */
 
+SELECT md.nom, MONTH(carg.date_heure_arrivee)
+FROM distrib as dis 
+
+LEFT JOIN matieres_denrees as md
+    ON md.id = dis.id_matiere_denree
+
+GROUP BY md.nom
+ORDER BY poids_total DESC
