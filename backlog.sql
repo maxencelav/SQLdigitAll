@@ -651,18 +651,101 @@ LIMIT 1;
 
 /* ---- EXERCICE 17 ---- */
 
-SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+(SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
 FROM distrib as dis
-
 LEFT JOIN domtom AS dt
     ON dt.id = dis.id_ville
-
 LEFT JOIN matieres_denrees AS md
     ON md.id = dis.id_matiere_denree
+WHERE dt.departement = "Guadeloupe"
 
 GROUP BY dt.ville
-ORDER BY dis.quantite_distribue DESC
-LIMIT 3;
+ORDER BY quantite_totale DESC
+LIMIT 3)
+
+UNION /**/
+
+(SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+FROM distrib as dis
+LEFT JOIN domtom AS dt
+    ON dt.id = dis.id_ville
+LEFT JOIN matieres_denrees AS md
+    ON md.id = dis.id_matiere_denree
+WHERE dt.departement = "Guyane"
+
+GROUP BY dt.ville
+ORDER BY quantite_totale DESC
+LIMIT 3)
+
+UNION /**/
+
+(SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+FROM distrib as dis
+LEFT JOIN domtom AS dt
+    ON dt.id = dis.id_ville
+LEFT JOIN matieres_denrees AS md
+    ON md.id = dis.id_matiere_denree
+WHERE dt.departement = "La Réunion"
+
+GROUP BY dt.ville
+ORDER BY quantite_totale DESC
+LIMIT 3)
+
+UNION /**/
+
+(SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+FROM distrib as dis
+LEFT JOIN domtom AS dt
+    ON dt.id = dis.id_ville
+LEFT JOIN matieres_denrees AS md
+    ON md.id = dis.id_matiere_denree
+WHERE dt.departement = "Martinique"
+
+GROUP BY dt.ville
+ORDER BY quantite_totale DESC
+LIMIT 3)
+
+UNION /**/
+
+(SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+FROM distrib as dis
+LEFT JOIN domtom AS dt
+    ON dt.id = dis.id_ville
+LEFT JOIN matieres_denrees AS md
+    ON md.id = dis.id_matiere_denree
+WHERE dt.departement = "Mayotte"
+
+GROUP BY dt.ville
+ORDER BY quantite_totale DESC
+LIMIT 3)
+
+UNION /**/
+(SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+FROM distrib as dis
+LEFT JOIN domtom AS dt
+    ON dt.id = dis.id_ville
+LEFT JOIN matieres_denrees AS md
+    ON md.id = dis.id_matiere_denree
+WHERE dt.departement = "Nouvelle-Calédonie"
+
+GROUP BY dt.ville
+ORDER BY quantite_totale DESC
+LIMIT 3)
+
+UNION /**/
+
+(SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+FROM distrib as dis
+LEFT JOIN domtom AS dt
+    ON dt.id = dis.id_ville
+LEFT JOIN matieres_denrees AS md
+    ON md.id = dis.id_matiere_denree
+WHERE dt.departement = "Polynésie-Française"
+
+GROUP BY dt.ville
+ORDER BY quantite_totale DESC
+LIMIT 3)
+
 
 
 /* ---- EXERCICE 18 ---- */
@@ -707,11 +790,24 @@ INNER JOIN cargaisons as carg
 
 /* ---- EXERCICE 22 ---- */
 
+(SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+FROM distrib as dis
+LEFT JOIN domtom AS dt
+    ON dt.id = dis.id_ville
+LEFT JOIN matieres_denrees AS md
+    ON md.id = dis.id_matiere_denree
+WHERE dt.departement = "Guadeloupe"
+
+GROUP BY dt.ville
+ORDER BY quantite_totale DESC
+LIMIT 3)
 
 
 /* ---- EXERCICE 23 ---- */
 
-SELECT carg.reference_bateau, carg.pays_depart, carg.ville_depart, dt.ville as ville_arrivee, dt.departement as departement_arrivee, sum(att.quantite) as poids_cargaison , datediff(carg.date_heure_arrivee, carg.date_heure_depart) as duree_livraison
+SELECT carg.reference_bateau, carg.pays_depart, carg.ville_depart, dt.ville as ville_arrivee,
+dt.departement as departement_arrivee, sum(att.quantite) as poids_cargaison,
+datediff(carg.date_heure_arrivee, carg.date_heure_depart) as duree_livraison
 FROM cargaisons as carg
 
 LEFT JOIN domtom as dt
