@@ -839,6 +839,16 @@ ORDER BY carg.id
 
 /* ---- EXERCICE 24 ---- */
 
+SELECT md.nom, sum(dis.quantite_distribue) as poids_total
+FROM distrib as dis
+
+LEFT JOIN matieres_denrees as md
+    ON md.id = dis.id_matiere_denree
+
+GROUP BY md.nom 
+ORDER BY poids_total DESC
+LIMIT 5
+
 
 
 /* ---- EXERCICE 25 ---- */
