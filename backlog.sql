@@ -646,8 +646,8 @@ FROM domtom as dt
 INNER JOIN matieres_denrees as md
 INNER JOIN distrib as dis
     ON dt.ville LIKE 'LE L%' AND dis.id_ville = dt.id
+GROUP BY dt.ville
 ORDER BY dis.quantite_distribue DESC
-LIMIT 1;
 
 /* ---- EXERCICE 17 ---- */
 
