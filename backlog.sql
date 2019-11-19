@@ -786,10 +786,7 @@ WHERE carg.id_ville_arrivee IN
     WHERE departement = "Guadeloupe" AND YEAR(carg.date_heure_arrivee) = 2018)
 
 GROUP BY mois
-
-
-
-
+/* affiche pas les mois sans livraison*/
 
 
 /* ---- EXERCICE 21 ---- */
@@ -866,11 +863,13 @@ LIMIT 5
 
 /* ---- EXERCICE 25 ---- */
 
-SELECT md.nom, MONTH(carg.date_heure_arrivee)
-FROM distrib as dis 
+SELECT DATE_FORMAT(carg.date_heure_arrivee,'%M') as mois, md.nom, MAX(dis.quantite_distribue) as poids_total
+FROM distrib as dis, matieres_denrees as md
 
-LEFT JOIN matieres_denrees as md
-    ON md.id = dis.id_matiere_denree
+INNER JOIN cargaisons as carg
+    WHERE carg.id = dis.id_cargaison
+    AND md.id = dis.id_matiere_denree
+    AND md.est_matiere_premiere = 1
+    AND YEAR(carg.date_heure_arrivee) = 2019
 
-GROUP BY md.nom
-ORDER BY poids_total DESC
+GROUP BY mois
