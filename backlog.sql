@@ -790,17 +790,16 @@ INNER JOIN cargaisons as carg
 
 /* ---- EXERCICE 22 ---- */
 
-(SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
 FROM distrib as dis
 LEFT JOIN domtom AS dt
     ON dt.id = dis.id_ville
 LEFT JOIN matieres_denrees AS md
     ON md.id = dis.id_matiere_denree
-WHERE dt.departement = "Guadeloupe"
 
 GROUP BY dt.ville
 ORDER BY quantite_totale DESC
-LIMIT 3)
+LIMIT 5
 
 
 /* ---- EXERCICE 23 ---- */
