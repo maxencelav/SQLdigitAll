@@ -790,16 +790,35 @@ INNER JOIN cargaisons as carg
 
 /* ---- EXERCICE 22 ---- */
 
-SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
-FROM distrib as dis
-LEFT JOIN domtom AS dt
-    ON dt.id = dis.id_ville
-LEFT JOIN matieres_denrees AS md
-    ON md.id = dis.id_matiere_denree
+(SELECT YEAR(carg.date_heure_arrivee) as annee, dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+from cargaisons as carg
+
+LEFT JOIN distrib as dis
+    ON dis.id_cargaison = carg.id
+
+LEFT JOIN domtom as dt
+    ON dt.id = carg.id_ville_arrivee
+
+WHERE YEAR(carg.date_heure_arrivee) = 2018
 
 GROUP BY dt.ville
 ORDER BY quantite_totale DESC
-LIMIT 5
+LIMIT 5)
+UNION
+(SELECT YEAR(carg.date_heure_arrivee) as annee, dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
+from cargaisons as carg
+
+LEFT JOIN distrib as dis
+    ON dis.id_cargaison = carg.id
+
+LEFT JOIN domtom as dt
+    ON dt.id = carg.id_ville_arrivee
+
+WHERE YEAR(carg.date_heure_arrivee) = 2019
+
+GROUP BY dt.ville
+ORDER BY quantite_totale DESC
+LIMIT 5)
 
 
 /* ---- EXERCICE 23 ---- */
