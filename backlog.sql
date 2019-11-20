@@ -863,13 +863,17 @@ LIMIT 5
 
 /* ---- EXERCICE 25 ---- */
 
-SELECT DATE_FORMAT(carg.date_heure_arrivee,'%M') as mois, md.nom, MAX(dis.quantite_distribue) as poids_total
-FROM distrib as dis, matieres_denrees as md
+SELECT (SELECT SUM(quantite_distribue)
+        FROM distrib
+        LEFT JOIN cargaisons as carg ON carg.id = distrib.id_cargaison
+        WHERE id_matiere_denree = matieres_denrees.id
+        GROUP BY month(date_heure_arrivee) LIMIT 1) as weightsum, matieres_denrees.nom, date_format(carg.date_heure_arrivee, '%M') as mois
+FROM distrib as dis
 
-INNER JOIN cargaisons as carg
-    WHERE carg.id = dis.id_cargaison
-    AND md.id = dis.id_matiere_denree
-    AND md.est_matiere_premiere = 1
-    AND YEAR(carg.date_heure_arrivee) = 2019
+LEFT JOIN cargaisons as carg
+    ON carg.id = dis.id_cargaison
+LEFT JOIN matieres_denrees as    md
+    ON md.id = dis.id_matiere_denree
 
-GROUP BY mois
+WHERE est_matiere_premiere = 1 and year(carg.date_heure_arrivee) = 2019
+GROUP BY month(carg.date_heure_arrivee) ORDER BY `weightsum` DESC
