@@ -650,6 +650,8 @@ GROUP BY dt.ville
 ORDER BY dis.quantite_distribue DESC
 
 /* ---- EXERCICE 17 ---- */
+/* /!\ Pas réussi à faire tous les départements en une requête, on a fait
+des requêtes assemblées avec des UNION */
 
 (SELECT dt.ville, dt.departement, sum(dis.quantite_distribue) as quantite_totale
 FROM distrib as dis
